@@ -8,4 +8,5 @@ main_color = Color3.fromRGB(255, 212, 42),
     min_size = Vector2.new(650, 870),
     can_resize = false,
 
-local main = window:AddTab("Main)
+local AutoFarm = window:AddTab("AutoFarm")
+local folder1 = AutoFarm:AddFolder("Tools")
