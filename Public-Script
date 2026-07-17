@@ -9,3 +9,32 @@ main_color = Color3.fromRGB(255, 212, 42),
     can_resize = false,
 
 local main = window:AddTab("Main")
+local folder = Main:AddFolder("Brawl")
+
+-- God Mode Toggle
+local godModeToggle = false
+folder:AddSwitch("God Mode (Brawl)", function(State)
+    godModeToggle = State
+    if State then
+        task.spawn(function()
+            while godModeToggle do
+                game:GetService("ReplicatedStorage").rEvents.brawlEvent:FireServer("joinBrawl")
+                task.wait(0)
+            end
+        end)
+    end
+end)
+
+-- Auto Join Brawl Toggle
+local autoJoinToggle = false
+folder:AddSwitch("Auto Join Brawl", function(State)
+    autoJoinToggle = State
+    if State then
+        task.spawn(function()
+            while autoJoinToggle do
+                game:GetService("ReplicatedStorage").rEvents.brawlEvent:FireServer("joinBrawl")
+                task.wait(2)
+            end
+        end)
+    end
+end)
