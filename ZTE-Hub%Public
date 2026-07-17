@@ -1,0 +1,47 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/memejames/elerium-v2-ui-library/main/Library", true))()
+
+local player = game.Players.Local Player
+local displayName = player.DisplayName or player.Name
+
+local window =library:AddWindow("💪 ZTE HUB | PUBLIC SCRIPT - Welcome " .. displayName, {
+main_color = Color3.fromRGB(255, 212, 42),
+    min_size = Vector2.new(650, 870),
+    can_resize = false,
+
+local AutoFarm = window:AddTab("AutoFarm")
+
+-- Top Row Buttons (Autos)
+local AutoLiftButton = createGridButton("AutoLiftButton", "Auto Lift: OFF", UDim2.new(0, 20, 0, 60), UDim2.new(0, 160, 0, 50))
+local AutoRebirthButton = createGridButton("AutoRebirthButton", "Auto Rebirth: OFF", UDim2.new(0, 200, 0, 60), UDim2.new(0, 160, 0, 50))
+
+-- Middle Row Buttons (Utility & Anti-AFK)
+local AntiAFKButton = createGridButton("AntiAFKButton", "Anti-AFK: OFF", UDim2.new(0, 20, 0, 125), UDim2.new(0, 160, 0, 50))
+
+-- Live Timer Frame (Tied with Anti-AFK Row)
+local TimerFrame = Instance.new("Frame")
+TimerFrame.Size = UDim2.new(0, 160, 0, 50)
+TimerFrame.Position = UDim2.new(0, 200, 0, 125)
+TimerFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+TimerFrame.BorderSizePixel = 0
+TimerFrame.Parent = MainFrame
+Instance.new("UICorner", TimerFrame).CornerRadius = UDim.new(0, 8)
+
+local TimerLabel = Instance.new("TextLabel")
+TimerLabel.Size = UDim2.new(1, 0, 1, 0)
+TimerLabel.BackgroundTransparency = 1
+TimerLabel.Text = "Session: 00:00:00"
+TimerLabel.TextColor3 = Color3.fromRGB(150, 200, 255)
+TimerLabel.TextSize = 13
+TimerLabel.Font = Enum.Font.GothamBold
+TimerLabel.Parent = TimerFrame
+
+-- Bottom Row Buttons (Equip Buttons)
+local SquatButton = createGridButton("SquatButton", "Equip 40kg Magma Squat", UDim2.new(0, 20, 0, 195), UDim2.new(0, 340, 0, 55))
+local DeadliftButton = createGridButton("DeadliftButton", "Equip 40kg Magma Deadlift", UDim2.new(0, 20, 0, 265), UDim2.new(0, 340, 0, 55))
+
+-- Subtle styling for Equip Buttons (Orange Flame gradient vibe)
+SquatButton.BackgroundColor3 = Color3.fromRGB(45, 25, 15)
+SquatButton.TextColor3 = Color3.fromRGB(255, 140, 50)
+DeadliftButton.BackgroundColor3 = Color3.fromRGB(45, 25, 15)
+DeadliftButton.TextColor3 = Color3.fromRGB(255, 140, 50)
+
