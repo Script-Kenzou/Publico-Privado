@@ -159,3 +159,5 @@ autoEquipToolsFolder:AddSwitch("Fast Tools", function(Value)
         end
     end
 end)
+
+local Farming = window:AddTab("Farming")
